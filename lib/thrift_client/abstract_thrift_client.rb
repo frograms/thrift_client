@@ -98,6 +98,7 @@ class AbstractThriftClient
   # call.
   def connect!(method = nil)
     start_time ||= Time.now
+    @current_server = @server_list.first
     @client = @current_server.client
     @last_client = @client
     do_callbacks(:post_connect, self)
